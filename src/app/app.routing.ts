@@ -20,13 +20,13 @@ export const routes: Routes = [
     },
     children: [
       {
-        path: 'test',
+        path: '',
         loadChildren: './front-office/front-office.module#FrontOfficeModule'
       }
     ]
   },
   {
-    path: 'admin',
+    path: 'dash',
     redirectTo: 'dashboard',
     pathMatch: 'full',
   },
@@ -59,7 +59,7 @@ export const routes: Routes = [
     }
   },
   {
-    path: '',
+    path: 'admin',
     component: DefaultLayoutComponent,
     data: {
       title: 'Home'
