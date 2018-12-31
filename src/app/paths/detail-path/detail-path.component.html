@@ -1,0 +1,36 @@
+
+
+
+<div class="col-lg-12">
+  <div class="card border-primary">
+    <div class="card-header">
+      <i class="cui-magnifying-glass icons font-2xl  mt-4"></i> Treatments list
+    </div>
+    <div class="card-body">
+    <label>Ref</label>  {{ path.description}} <br>
+      <label>Date</label>  {{path.date_path}}
+      <table class="table table-striped">
+        <thead>
+
+        <tr>
+          <th>Id</th>
+          <th>description</th>
+          <th>doc</th>
+          <th>action</th>
+        </tr>
+
+        </thead>
+        <tbody>
+        <tr *ngFor="let treat of treatments">
+          <td>{{treat.id}}</td>
+          <td>{{treat.description}}</td>
+          <td>{{treat.recomended_doc}}</td>
+          <td><button class="btn btn-danger" (click)="deleteTreatFromPath(treat.id)">Delete</button> </td>
+        </tr>
+        </tbody>
+      </table>
+<button class="btn btn-primary">Add treatment</button> &nbsp;<button class="btn btn-primary" [routerLink]="['/admin/treats/detail', path.id]">Add from existing treatments</button>
+    </div>
+  </div>
+</div>
+

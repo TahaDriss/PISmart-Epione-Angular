@@ -1,0 +1,19 @@
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover data-table">
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>description</th>
+    <th>date</th>
+    <th></th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let path of paths">
+    <td>{{path.id}}</td>
+    <td>{{path.description}}</td>
+    <td>{{path.date_path}}</td>
+    <td><button class="btn btn-primary" [routerLink]="['/admin/paths/detail', path.id]">consult</button> </td>
+  </tr>
+  </tbody>
+</table>

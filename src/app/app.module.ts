@@ -42,6 +42,13 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { FrontComponent } from './front/front.component';
 import {FrontOfficeModule} from './front-office/front-office.module';
 
+import {DataTablesModule} from 'angular-datatables';
+import {PathService} from './services/path.service';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {TreatmentService} from './services/treatment.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -55,7 +62,12 @@ import {FrontOfficeModule} from './front-office/front-office.module';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
-    FrontOfficeModule
+    FrontOfficeModule,
+    HttpClientModule,
+    DataTablesModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
   declarations: [
     AppComponent,
@@ -66,10 +78,13 @@ import {FrontOfficeModule} from './front-office/front-office.module';
     RegisterComponent,
     FrontComponent
   ],
-  providers: [{
+  providers: [  PathService, TreatmentService,
+    {
     provide: LocationStrategy,
     useClass: HashLocationStrategy
-  }],
+    }
+
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
