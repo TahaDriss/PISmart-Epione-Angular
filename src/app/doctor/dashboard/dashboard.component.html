@@ -1,0 +1,137 @@
+<div class="row">
+  <div class="col-sm-6 col-md-3">
+    <div class="card text-white bg-info" style="min-height: auto; padding:0">
+      <div class="card-body">
+        <div class="h1 text-muted text-right" style="margin:0%">
+          <div class="h4 mb-0 top-card-value">{{ average_duration }}</div>
+          <i class="fa fa-hourglass-2"></i>
+        </div>
+        <small class="text-muted text-uppercase font-weight-bold">Per consultation</small>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-3">
+    <div class="card text-white bg-warning" style="min-height: auto; padding:0">
+      <div class="card-body">
+        <div class="h1 text-muted text-right" style="margin:0%">
+          <div class="h4 mb-0 top-card-value">{{ week_appointments }}</div>
+          <i class="fa fa-calendar-check-o"></i>
+        </div>
+        <small class="text-muted text-uppercase font-weight-bold">Appoinments this week</small>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-3">
+    <div class="card text-white bg-success" style="min-height: auto; padding:0">
+      <div class="card-body">
+        <div class="h1 text-muted text-right" style="margin:0%">
+          <div class="h4 mb-0 top-card-value">{{ patients_count }}</div>
+          <i class="icon-people"></i>
+        </div>
+        <small class="text-muted text-uppercase font-weight-bold">Unique patients</small>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-3">
+    <div class="card text-white bg-danger" style="min-height: auto; padding:0">
+      <div class="card-body">
+        <div class="h1 text-muted text-right" style="margin:0%">
+          <div class="h4 mb-0 top-card-value">{{ apps_per_day?.toFixed(2) }}</div>
+          <i class="fa fa-stethoscope"></i>
+        </div>
+        <small class="text-muted text-uppercase font-weight-bold">Appointments per day</small>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="card" style="margin: 0; padding-bottom:10px; max-height:calc(100vh - 220px); min-height:auto; overflow-y: auto">
+      <div class="card-body" style="padding:0">
+        <table class="table table-responsive-sm table-sm">
+          <thead>
+            <tr>
+              <th>Patient name</th>
+              <th>Time</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let appointment of appointments">
+              <td>{{ appointment?.patient.profile.firstname }} {{ appointment?.patient.profile.lastname }}</td>
+              <td>{{ appointment?.date_start | date : 'H:mm'}}</td>
+              <td><span class="badge badge-success">Active</span></td>
+              <td><button class="btn btn-primary btn-sm">Details</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card" style="padding:0; max-height:200px; min-height:100px; overflow-y: auto">
+          <div class="card-body text-left" style="padding: 20px">
+            <p class="text-muted text-left app-card-heading" *ngIf="next_ongoing?.state == 'UPCOMING'">
+              <small>Next Appointment</small>
+              <strong class="pull-right">{{ next_ongoing?.date_start | date : 'H:mm' }}</strong>
+            </p>
+            <p class="text-muted text-left app-card-heading" *ngIf="next_ongoing?.state == 'ONGOING'"><small>Ongoing Appointment</small></p>
+            <div class="row">
+              <div class="col-md-2">
+                <img src="assets/img/avatars/2.jpg" alt="" class="img-avatar">
+              </div>
+              <div class="col-md-6" style="line-height : 50px">
+                {{ next_ongoing?.patient.profile.firstname }} {{ next_ongoing?.patient.profile.lastname }}
+              </div>
+              <div class="col-md-2">
+                <button class="btn btn-primary btn-sm btn-block" style="margin-top: 10px" *ngIf="next_ongoing?.state == 'ONGOING'">Stop</button>
+                <button class="btn btn-primary btn-sm btn-block" style="margin-top: 10px" *ngIf="next_ongoing?.state == 'UPCOMING'">Start</button>
+              </div>
+              <div class="col-md-2">
+                <button class="btn btn-info btn-sm btn-block" style="margin-top: 10px">Details</button>
+              </div>
+            </div>
+          </div>  
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+          <div class="card" style="padding:0; min-height: auto">
+            <div class="card-header">
+              Charts
+              <div class="card-header-actions">
+                <div class="dropdown">
+                  <a class="card-header-action btn-minimize" (click)="toggleDropDown()" role="button" aria-haspopup="true" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                    <i class="icon-arrow-down"></i>
+                  </a>
+                  <div class="dropdown-menu" id="chartDropDown" aria-labelledby="dropdownMenuButton" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 35px, 0px);">
+                    <a class="dropdown-item" (click)="toggleDropDown();chart=1">Days</a>
+                    <a class="dropdown-item" (click)="toggleDropDown();chart=2">Month</a>
+                    <a class="dropdown-item" (click)="toggleDropDown();chart=3">Year</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <canvas baseChart height="150" [hidden]="chart!=1"
+                [datasets]="dayChartData" [labels]="dayChartLabels" [options]="chartOptions"
+                [legend]="chartLegend" [chartType]="'line'" *ngIf="dayChartData.length > 0">
+              </canvas>
+              <canvas baseChart height="150" [hidden]="chart!=2"
+                [datasets]="monthChartData" [labels]="monthChartLabels" [options]="chartOptions"
+                [legend]="chartLegend" [chartType]="'line'" *ngIf="monthChartData.length > 0">
+              </canvas>
+              <canvas baseChart height="150" [hidden]="chart!=3"
+                [datasets]="yearChartData" [labels]="yearChartLabels" [options]="chartOptions"
+                [legend]="chartLegend" [chartType]="'bar'" *ngIf="yearChartData.length > 0">
+              </canvas>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
