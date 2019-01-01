@@ -5,34 +5,54 @@
         <div class="col-md-6 mx-auto">
           <div class="card mx-4">
             <div class="card-body p-4">
-              <form>
+              <form [formGroup]="form" (ngSubmit)="register()">
                 <h1>Register</h1>
                 <p class="text-muted">Create your account</p>
+                <div class="alert alert-danger" *ngIf="error_message !== ''">
+                  {{ error_message }}
+                </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-user"></i></span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Username" autocomplete="username" required>
+                  <input id="username" formControlName="username"  type="text" class="form-control" placeholder="Username" autocomplete="username" required>
                 </div>
+                <p class="help-block text-danger text-left" *ngIf="form.get('username').value == '' && form.get('username').dirty">Username is required</p>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">@</span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Email" autocomplete="email" required>
+                  <input formControlName="email"  type="text" class="form-control" placeholder="Email" autocomplete="email" required>
                 </div>
+                <p class="help-block text-danger text-left" *ngIf="form.get('email').dirty && form.get('email').errors?.email">Enter a valid email</p>
+                <p class="help-block text-danger text-left" *ngIf="form.get('email').dirty && form.get('email').errors?.required">Email address is required</p>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-lock"></i></span>
                   </div>
-                  <input type="password" class="form-control" placeholder="Password" autocomplete="new-password" required>
+                  <input formControlName="password"  type="password" class="form-control" placeholder="Password" required>
                 </div>
                 <div class="input-group mb-4">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-lock"></i></span>
                   </div>
-                  <input type="password" class="form-control" placeholder="Repeat password" autocomplete="new-password" required>
+                  <input formControlName="confirm"  type="password" class="form-control" placeholder="Repeat password" required>
                 </div>
-                <button type="button" class="btn btn-block btn-success">Create Account</button>
+                <p class="help-block text-danger text-left" 
+                *ngIf="form.get('password').value !='' && form.get('confirm').value !='' && form.get('password').value != form.get('confirm').value">
+                Passwords are not identical</p>
+                <div class="input-group mb-4">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-directions"></i></span>
+                  </div>
+                  <select class="form-control" formControlName="role" placeholder="Account type" srequired>
+                    <option value="">Account type</option>
+                    <option value="ROLE_DOCTOR">Doctor</option>
+                    <option value="ROLE_PATIENT">Patient</option>
+                  </select>
+                </div>
+                <p class="help-block text-danger text-left" *ngIf="form.get('role').value == ''">*Select an account type</p>
+                <button [disabled]="!form.valid || form.get('password').value!=form.get('confirm').value" class="btn btn-block btn-success">Create Account</button>
               </form>
             </div>
             <div class="card-footer p-4">

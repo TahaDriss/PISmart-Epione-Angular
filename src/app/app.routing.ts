@@ -10,6 +10,10 @@ import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import {AppComponent} from './app.component';
 import {FrontComponent} from './front/front.component';
+import { AuthGuard } from './auth/auth.guard';
+import { UnauthorizedComponent } from './views/error/Unauthorized.component';
+import { SuccessfullComponent } from './views/successfull/successfull.component';
+import { DoctorComponent } from './doctor/doctor.component';
 
 export const routes: Routes = [
   {
@@ -45,6 +49,14 @@ export const routes: Routes = [
     }
   },
   {
+    path : 'unauthorized',
+    component : UnauthorizedComponent
+  },
+  {
+    path : 'successfull',
+    component : SuccessfullComponent
+  },
+  {
     path: 'login',
     component: LoginComponent,
     data: {
@@ -60,6 +72,7 @@ export const routes: Routes = [
   },
   {
     path: 'admin',
+    canActivate : [AuthGuard],
     component: DefaultLayoutComponent,
     data: {
       title: 'Home'

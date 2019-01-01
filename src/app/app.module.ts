@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { LocationStrategy, HashLocationStrategy, CommonModule } from '@angular/common';
 
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
@@ -20,16 +21,14 @@ import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 
-const APP_CONTAINERS = [
-  DefaultLayoutComponent
-];
+const APP_CONTAINERS = [DefaultLayoutComponent];
 
 import {
   AppAsideModule,
   AppBreadcrumbModule,
   AppHeaderModule,
   AppFooterModule,
-  AppSidebarModule,
+  AppSidebarModule
 } from '@coreui/angular';
 
 // Import routing module
@@ -40,10 +39,18 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { FrontComponent } from './front/front.component';
-import {FrontOfficeModule} from './front-office/front-office.module';
+import { FrontOfficeModule } from './front-office/front-office.module';
+import { UnauthorizedComponent } from './views/error/Unauthorized.component';
+import { AuthService } from './services/auth.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SuccessfullComponent } from './views/successfull/successfull.component';
+import { DoctorModule } from './doctor/doctor.module';
+import { DoctorRoutingModule } from './doctor/doctor-routing.module';
+import { LoaderComponent } from './loader.component';
 
 @NgModule({
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     AppAsideModule,
@@ -54,8 +61,13 @@ import {FrontOfficeModule} from './front-office/front-office.module';
     PerfectScrollbarModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
+    DoctorModule,
+    DoctorRoutingModule,
     ChartsModule,
-    FrontOfficeModule
+    CommonModule,
+    FrontOfficeModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AppComponent,
@@ -64,12 +76,18 @@ import {FrontOfficeModule} from './front-office/front-office.module';
     P500Component,
     LoginComponent,
     RegisterComponent,
-    FrontComponent
+    FrontComponent,
+    UnauthorizedComponent,
+    SuccessfullComponent,
+    LoaderComponent
   ],
-  providers: [{
-    provide: LocationStrategy,
-    useClass: HashLocationStrategy
-  }],
-  bootstrap: [ AppComponent ]
+  providers: [
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    },
+    AuthService
+  ],
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
