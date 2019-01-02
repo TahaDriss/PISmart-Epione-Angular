@@ -48,6 +48,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TreatmentService} from './services/treatment.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ReportService} from './services/report.service';
 
 @NgModule({
   imports: [
@@ -78,7 +79,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RegisterComponent,
     FrontComponent
   ],
-  providers: [  PathService, TreatmentService,
+  providers: [  PathService, TreatmentService,ReportService,
     {
     provide: LocationStrategy,
     useClass: HashLocationStrategy

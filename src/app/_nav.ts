@@ -9,6 +9,41 @@ export const navItems = [
     }
   },
   {
+    name: 'Paths',
+    url: '/admin/paths',
+    icon: 'icon-puzzle',
+    children: [
+      {
+        name: 'List',
+        url: '/admin/paths',
+        icon: 'icon-puzzle'
+      },
+      {
+        name: 'Add path',
+        url: '/admin/paths/add',
+        icon: 'icon-puzzle'
+      }
+    ]
+  },
+
+  {
+    name: 'Reports',
+    url: '/admin/reports',
+    icon: 'icon-puzzle',
+    children: [
+      {
+        name: 'List',
+        url: '/admin/reports',
+        icon: 'icon-puzzle'
+      },
+      {
+        name: 'Add report',
+        url: '/admin/reports/add',
+        icon: 'icon-puzzle'
+      }
+    ]
+  },
+  {
     title: true,
     name: 'Theme'
   },
