@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
@@ -55,7 +56,8 @@ import {FrontOfficeModule} from './front-office/front-office.module';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
-    FrontOfficeModule
+    FrontOfficeModule,
+    HttpClientModule
   ],
   declarations: [
     AppComponent,

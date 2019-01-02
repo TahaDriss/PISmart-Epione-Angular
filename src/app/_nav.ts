@@ -189,6 +189,16 @@ export const navItems = [
     name: 'Extras',
   },
   {
+    name: 'Doctolib',
+    url: '/admin/doctolib',
+    icon: 'icon-star'
+  },
+  {
+    name: 'Epione Health Care',
+    url: '/admin/chatbot',
+    icon: 'icon-star'
+  },
+  {
     name: 'Pages',
     url: '/admin/pages',
     icon: 'icon-star',

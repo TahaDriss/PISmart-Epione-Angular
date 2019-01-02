@@ -70,6 +70,14 @@ export const routes: Routes = [
         loadChildren: './views/base/base.module#BaseModule'
       },
       {
+        path: 'doctolib',
+        loadChildren: './views/doctolib/doctolib.module#DoctolibModule'
+      },
+      {
+        path: 'chatbot',
+        loadChildren: './views/chatbot/chatbot.module#ChatbotModule'
+      },
+      {
         path: 'buttons',
         loadChildren: './views/buttons/buttons.module#ButtonsModule'
       },

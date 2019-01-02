@@ -8,7 +8,9 @@
     "paths": {
       "@angular/*": [
         "../node_modules/@angular/*"
-      ]
+      ],
+      "@app/*" : ["app/*"],
+      "@env/*" : ["environments/*"]
     }
   },
   "exclude": [
