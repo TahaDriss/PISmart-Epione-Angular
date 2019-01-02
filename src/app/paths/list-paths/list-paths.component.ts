@@ -10,6 +10,7 @@ import {Subject} from 'rxjs';
 })
 export class ListPathsComponent implements OnInit {
   paths: Object;
+ t : Object;
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject();
   constructor(private service : PathService) { }
@@ -26,6 +27,15 @@ export class ListPathsComponent implements OnInit {
 
     });
 
+  }
+
+
+  countTreats(id) : any{
+    this.service.countTreats(id).subscribe(data => {
+     this.t =  data;
+    }, err=>{
+      console.log("ERREUR"+err);
+    });
   }
 
 }

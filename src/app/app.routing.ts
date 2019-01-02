@@ -104,6 +104,10 @@ export const routes: Routes = [
       {
         path: 'treats',
         loadChildren: './treatments/treatments.module#TreatmentsModule'
+      },
+      {
+        path: 'reports',
+        loadChildren: './reports/reports.module#ReportsModule'
       }
     ]
   },
