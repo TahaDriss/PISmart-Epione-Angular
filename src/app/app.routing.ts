@@ -9,6 +9,7 @@ import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import {AppComponent} from './app.component';
+import {RatingComponent} from './rating/rating.component';
 import {FrontComponent} from './front/front.component';
 
 export const routes: Routes = [

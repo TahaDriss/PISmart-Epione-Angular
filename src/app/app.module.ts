@@ -41,10 +41,13 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { FrontComponent } from './front/front.component';
 import {FrontOfficeModule} from './front-office/front-office.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {SharedModule} from './shared/shared.module';
 
 @NgModule({
   imports: [
     BrowserModule,
+    SharedModule,
     AppRoutingModule,
     AppAsideModule,
     AppBreadcrumbModule.forRoot(),
@@ -55,7 +58,8 @@ import {FrontOfficeModule} from './front-office/front-office.module';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
-    FrontOfficeModule
+    FrontOfficeModule,
+    BrowserAnimationsModule
   ],
   declarations: [
     AppComponent,
@@ -64,7 +68,7 @@ import {FrontOfficeModule} from './front-office/front-office.module';
     P500Component,
     LoginComponent,
     RegisterComponent,
-    FrontComponent
+    FrontComponent,
   ],
   providers: [{
     provide: LocationStrategy,
