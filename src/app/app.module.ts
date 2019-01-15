@@ -41,9 +41,18 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { FrontComponent } from './front/front.component';
 import {FrontOfficeModule} from './front-office/front-office.module';
+import {FormsModule} from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AgmCoreModule} from '@agm/core';
+import {CalendarModule} from 'primeng/calendar';
 
 @NgModule({
   imports: [
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDPIuR6EKoHIHFnOqr6WN_Q7_dNDy6Nwj8',
+      libraries: ['places']
+    }),
+    CalendarModule,
     BrowserModule,
     AppRoutingModule,
     AppAsideModule,
@@ -55,7 +64,10 @@ import {FrontOfficeModule} from './front-office/front-office.module';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
-    FrontOfficeModule
+    BrowserAnimationsModule,
+    FrontOfficeModule,
+    BrowserModule,
+    FormsModule,
   ],
   declarations: [
     AppComponent,

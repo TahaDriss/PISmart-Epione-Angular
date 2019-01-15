@@ -8,8 +8,11 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
-import {AppComponent} from './app.component';
 import {FrontComponent} from './front/front.component';
+import {DoctorComponent} from './front-office/doctor/doctor.component';
+import {AppointmentComponent} from './front-office/appointment/appointment.component';
+import {PatientAppointmentComponent} from './front-office/patient-appointment/patient-appointment.component';
+import {PatientProfileComponent} from './front-office/patient-profile/patient-profile.component';
 
 export const routes: Routes = [
   {
@@ -22,6 +25,42 @@ export const routes: Routes = [
       {
         path: '',
         loadChildren: './front-office/front-office.module#FrontOfficeModule'
+      },
+      {
+        path: 'profile',
+        component: PatientProfileComponent,
+      },
+      {
+        path: 'allDoctors',
+        component: DoctorComponent,
+      },
+      {
+        path: 'appointment/:id/:name',
+        component: AppointmentComponent,
+      },
+      {
+        path: 'patientAppointment',
+        component: PatientAppointmentComponent,
+      },
+      {
+        path: 'doctors/:name',
+        component: DoctorComponent,
+      },
+      {
+        path: 'doctors/:latitude/:longitude',
+        component: DoctorComponent,
+      },
+      {
+        path: 'doctors/:speciality_id',
+        component: DoctorComponent,
+      },
+      {
+        path: 'doctors/:name/:speciality_id',
+        component: DoctorComponent,
+      },
+      {
+        path: 'doctors/:name/:speciality_id/:latitude/:longitude',
+        component: DoctorComponent,
       }
     ]
   },

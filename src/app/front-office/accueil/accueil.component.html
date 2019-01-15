@@ -336,7 +336,53 @@
 
     </div>
   </section>
+  <div class="main-content" >
+    <!-- Section: home -->
+    <section  class="inner-header divider parallax layer-overlay overlay-dark-8" data-bg-img="images/bg/bg37.jpg" style="background-image: url(&quot;images/bg/bg1.jpg&quot;); height:480px; background-position: 50% 66px;">
 
+      <div class="maximage-slider">
+        <div id="maximage">
+
+          <img src="../../../assets/images/bg/bg30.jpg" alt="" />
+
+        </div>
+        <div class="fullscreen-controls"> <a class="img-prev"><i class="pe-7s-angle-left"></i></a> <a class="img-next"><i class="pe-7s-angle-right"></i></a> </div>
+      </div>
+      <div class="display-table">
+        <div class="display-table-cell">
+          <div class="container">
+            <h5 class="title text-uppercase m-0" style="color:white;">Make an appointment </h5><br /><br />
+
+            <div class="row " >
+              <form style="display:flex;" #searchForm ="ngForm">
+
+                  <input type="text" class="form-control2"   name="name" placeholder="Name" width="250px"
+                         [(ngModel)]="doctor.name" #name="ngModel">
+
+                <select name="speciality" class="form-control2"  [(ngModel)]="doctor.speciality_id" #speciality="ngModel" >
+                  <option [ngValue]="undefined" disabled  selected> Select a speciality ... </option>
+
+                    <option value={{a.id}} *ngFor="let a of specialities">{{a.name}}</option>
+
+                </select>
+
+                <!--<input type="text" class="form-control2"  name="location" placeholder="Location"  [(ngModel)]="doctor.city" #city="ngModel">-->
+
+                <input type="text" placeholder="Search for Location" [(ngModel)]="doctor.city" name="city" #city="ngModel" placeholder="Location" autocorrect="off" autocapitalize="off" spellcheck="off" class="form-control" #search>
+                <input type="text" [(ngModel)]="doctor.latitude" #latitude="ngModel" name="latitude" hidden>
+                <input type="text" [(ngModel)]="doctor.longitude" #longitude="ngModel" name="longitude" hidden>
+                <button  value="Search" class="btn btn-colored btn-theme-colored text-uppercase form-control2 " [routerLink]="['../doctors',doctor.name,doctor.speciality_id,doctor.latitude,doctor.longitude]" style="background-color: #00a3c8;color: white">Search</button>
+
+
+              </form>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
   <!-- Section: home-boxes -->
   <section class="">
     <div class="container pt-0 pb-0">
