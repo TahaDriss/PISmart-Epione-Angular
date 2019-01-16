@@ -1,0 +1,75 @@
+<div class="row clearfix">
+  <div class="col-md-12" style="padding:15px;">
+    <!-- Nav tabs -->
+    <tabset>
+      <tab heading="Doctor">
+        <div class="row clearfix">
+          <div class="col-sm-5">
+            <div class="form-group">
+              <div class="form-line">
+                <input class="form-control" [(ngModel)]="name" id="doctor" name="doctor" placeholder="Doctor" type="text" value="">
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-5">
+            <div class="form-group drop-custum focused">
+              <select class="form-control show-tick" [(ngModel)]="city" id="city" name="city">
+                <option selected="selected" value="france">France</option>
+                <option value="paris">Paris</option>
+              </select>
+              </div>
+            </div>
+            <div class="col-sm-2 d-flex align-items-center">
+              <button (click)="getDoctorsByName()" type="submit" class="btn btn-raised g-bg-cyan col-sm-12">Submit</button>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Speciality">
+          <div class="row clearfix">
+            <div class="col-sm-5">
+              <div class="form-group drop-custum focused">
+                <select class="form-control show-tick" [(ngModel)]="speciality" id="speciality" name="speciality">
+                  <option selected="selected" value="medecin-generaliste">General Practitioner</option>
+                  <option value="osteopathe">Osteopath</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-5">
+              <div class="form-group drop-custum focused">
+                <select class="form-control show-tick" [(ngModel)]="city" id="city" name="city">
+                  <option selected="selected" value="france">France</option>
+                  <option value="paris">Paris</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-2 d-flex align-items-center">
+              <button (click)="getDoctorsBySpeciality()" type="submit" class="btn btn-raised g-bg-cyan col-sm-12">Submit</button>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+</div>
+<div class="row clearfix">
+    <ng-container *ngFor="let doctor of doctors;">
+    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+        <div class="card" style="padding-bottom: 0px;">
+            <div class="body" style="padding: 20px;">
+                <div class="member-card verified">
+                    <div class="thumb-xl member-thumb">
+                        <img src="{{doctor.img}}" class="img-thumbnail rounded-circle" alt="profile-image">
+                    </div>
+                    <div class="">
+                        <h4 class="m-b-5 m-t-20">{{doctor.name}}</h4>
+                        <p class="text-muted">{{doctor.speciality}}<br /><span> <a href="https://www.doctolib.fr{{doctor.path}}" target="_blank" class="text-pink">doctolib.fr</a> </span></p>
+                    </div>
+                    <p class="text-muted">{{doctor.address}}</p>
+                    <a class="btn btn-raised btn-sm" [routerLink]="['/admin/doctolib/profile']" [queryParams]="{ path: doctor.path }" >View Profile</a>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </ng-container>
+</div>

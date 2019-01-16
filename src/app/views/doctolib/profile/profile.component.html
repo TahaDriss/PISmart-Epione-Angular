@@ -1,0 +1,179 @@
+<section class="content profile-page" style="margin-top: 0px;margin-left: 0px;margin-right: 0px;" *ngIf="doctor != null">
+        <div class="container-fluid">
+
+
+
+
+<div class="row clearfix">
+    <div class="col-md-12 p-l-0 p-r-0">
+        <section class="boxs-simple">
+            <div class="profile-header">
+                <div class="profile_info">
+                    <div class="profile-image"> <img src="{{doctor.img}}" alt="profile-pic"> </div>
+                    <h4 class="mb-0"><strong>{{doctor.name}}</strong></h4>
+                    <span class="text-muted col-white">{{doctor.speciality}}</span>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+    <div class="row clearfix" style="margin-top: 25px">
+        <div class="col-lg-4 col-md-12">
+            <div class="card" style="padding-bottom: 0px;">
+                <div class="header">
+                    <h2>Location</h2>
+                </div>
+                <div class="body">
+                    <!--map-->
+                    <mgl-map style="height:300px;widht:341px" [style]="'mapbox://styles/cancidas/cjoybojdy4dmp2spi5986j164'" [zoom]="[15]" [center]="[doctor.lng, doctor.lat]">
+                      <mgl-marker #myMarker [lngLat]="[doctor.lng, doctor.lat]">
+                        <div id="marker" [style.background-image]="'url('+doctor.img+')'" class="mapboxgl-marker mapboxgl-marker-anchor-center">
+
+                          </div>
+                      </mgl-marker>
+
+                      <mgl-popup [marker]="myMarker" >
+                        {{doctor.address}}
+                      </mgl-popup>
+                    </mgl-map>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-12">
+            <div class="card" style="padding-bottom: 0px;">
+                <div class="header">
+                    <h2>Descprition</h2>
+                </div>
+                <div class="body">
+                    <p>
+                        {{doctor.description}}
+                    </p>
+                </div>
+            </div>
+            <div class="card" style="padding-bottom: 0px;">
+                <div class="header">
+                    <h2>Legal Information</h2>
+                </div>
+                <div class="body">
+                    <div class="row clearfix">
+                            <div class="col-lg-4 col-md-6 col-sm-12" *ngIf="doctor.nbreRPPS != null">
+                                <div class="panel-group" id="accordion_1" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-primary">
+                                        <div (click)="isCollapsedRPPS = !isCollapsedRPPS" class="panel-heading" role="tab" id="headingOne_1">
+                                            <h4 class="panel-title"> <a role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseOne_1" aria-expanded="false" aria-controls="collapseOne_1" class="collapsed"> Number of RPPS </a> </h4>
+                                        </div>
+                                        <div [collapse]="isCollapsedRPPS" id="collapseOne_1" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingOne_1" style="">
+                                            <div class="panel-body">
+                                                {{doctor.nbreRPPS}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12" *ngIf="doctor.memberAGA != null">
+                                <div class="panel-group" id="accordion_5" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-primary">
+                                        <div (click)="isCollapsedMemberAGA = !isCollapsedMemberAGA" class="panel-heading" role="tab" id="headingOne_5">
+                                            <h4 class="panel-title"> <a role="button" data-toggle="collapse" data-parent="#accordion_5" href="#collapseOne_5" aria-expanded="false" aria-controls="collapseOne_5" class="collapsed"> Member of AGA </a> </h4>
+                                        </div>
+                                        <div [collapse]="isCollapsedMemberAGA" id="collapseOne_5" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingOne_5" style="">
+                                            <div class="panel-body">
+                                                    <span>{{doctor.memberAGA}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12" *ngIf="doctor.statuts != null">
+                                <div class="panel-group" id="accordion_1" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-primary">
+                                        <div (click)="isCollapsedstatuts = !isCollapsedstatuts" class="panel-heading" role="tab" id="headingOne_1">
+                                            <h4 class="panel-title"> <a role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseOne_1" aria-expanded="false" aria-controls="collapseOne_1" class="collapsed"> Statuts </a> </h4>
+                                        </div>
+                                        <div [collapse]="isCollapsedstatuts" id="collapseOne_1" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingOne_1" style="">
+                                            <div class="panel-body">
+                                                {{doctor.statuts}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12" *ngIf="doctor.nbreInscriptionOrdre != null">
+                                <div class="panel-group" id="accordion_1" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-primary">
+                                        <div (click)="isCollapsednbreInscriptionOrdre = !isCollapsednbreInscriptionOrdre" class="panel-heading" role="tab" id="headingOne_1">
+                                            <h4 class="panel-title"> <a role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseOne_1" aria-expanded="false" aria-controls="collapseOne_1" class="collapsed"> Number Inscription Ordre </a> </h4>
+                                        </div>
+                                        <div [collapse]="isCollapsednbreInscriptionOrdre" id="collapseOne_1" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingOne_1" style="">
+                                            <div class="panel-body">
+                                                {{doctor.nbreInscriptionOrdre}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12" *ngIf="doctor.nbreRCS != null">
+                                <div class="panel-group" id="accordion_1" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-primary">
+                                        <div (click)="isCollapsednbreRCS = !isCollapsednbreRCS" class="panel-heading" role="tab" id="headingOne_1">
+                                            <h4 class="panel-title"> <a role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseOne_1" aria-expanded="false" aria-controls="collapseOne_1" class="collapsed"> Number RCS </a> </h4>
+                                        </div>
+                                        <div [collapse]="isCollapsednbreRCS" id="collapseOne_1" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingOne_1" style="">
+                                            <div class="panel-body">
+                                                {{doctor.nbreRCS}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12" *ngIf="doctor.formeJuridique != null">
+                                <div class="panel-group" id="accordion_1" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-primary">
+                                        <div (click)="isCollapsedformeJuridique = !isCollapsedformeJuridique" class="panel-heading" role="tab" id="headingOne_1">
+                                            <h4 class="panel-title"> <a role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseOne_1" aria-expanded="false" aria-controls="collapseOne_1" class="collapsed"> Forme Juridique </a> </h4>
+                                        </div>
+                                        <div [collapse]="isCollapsedformeJuridique" id="collapseOne_1" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingOne_1" style="">
+                                            <div class="panel-body">
+                                                {{doctor.formeJuridique}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12" *ngIf="doctor.adresseSocialeSiege != null">
+                                <div class="panel-group" id="accordion_1" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-primary">
+                                        <div (click)="isCollapsedadresseSocialeSiege = !isCollapsedadresseSocialeSiege" class="panel-heading" role="tab" id="headingOne_1">
+                                            <h4 class="panel-title"> <a role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseOne_1" aria-expanded="false" aria-controls="collapseOne_1" class="collapsed"> Adresse Sociale Siege </a> </h4>
+                                        </div>
+                                        <div [collapse]="isCollapsedadresseSocialeSiege" id="collapseOne_1" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingOne_1" style="">
+                                            <div class="panel-body">
+                                                {{doctor.adresseSocialeSiege}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12" *ngIf="doctor.socialReason != null">
+                                <div class="panel-group" id="accordion_1" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-primary">
+                                        <div (click)="isCollapsedsocialReason = !isCollapsedsocialReason" class="panel-heading" role="tab" id="headingOne_1">
+                                            <h4 class="panel-title"> <a role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseOne_1" aria-expanded="false" aria-controls="collapseOne_1" class="collapsed"> Social Reason </a> </h4>
+                                        </div>
+                                        <div [collapse]="isCollapsedsocialReason" id="collapseOne_1" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingOne_1" style="">
+                                            <div class="panel-body">
+                                                {{doctor.socialReason}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                                                                                                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>

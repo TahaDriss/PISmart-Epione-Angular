@@ -67,7 +67,8 @@ import { LoaderComponent } from './loader.component';
     CommonModule,
     FrontOfficeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FrontOfficeModule,
   ],
   declarations: [
     AppComponent,
