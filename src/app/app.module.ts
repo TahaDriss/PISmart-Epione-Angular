@@ -53,10 +53,18 @@ import { PathService } from './services/path.service';
 import { TreatmentService } from './services/treatment.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReportService } from './services/report.service';
+import {AgmCoreModule} from '@agm/core';
+import {CalendarModule} from 'primeng/calendar';
 
 @NgModule({
   imports: [
     HttpClientModule,
+
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDPIuR6EKoHIHFnOqr6WN_Q7_dNDy6Nwj8',
+      libraries: ['places']
+    }),
+    CalendarModule,
     BrowserModule,
     AppRoutingModule,
     AppAsideModule,
@@ -76,7 +84,6 @@ import { ReportService } from './services/report.service';
     ReactiveFormsModule,
     FrontOfficeModule,
     DataTablesModule,
-    FormsModule,
     BrowserAnimationsModule,
   ],
   declarations: [

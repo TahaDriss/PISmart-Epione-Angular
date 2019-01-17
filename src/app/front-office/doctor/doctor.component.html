@@ -1,0 +1,76 @@
+
+<section class="inner-header divider parallax layer-overlay overlay-dark-8" [ngStyle]="{'background-image':'url(../../../assets/images/bg/bg1.jpg)'}">
+  <div class="container pt-60 pb-60">
+    <!-- Section Content -->
+    <div class="section-content">
+      <div class="row">
+        <div class="col-md-12 xs-text-center">
+          <h3 class="title text-white">Doctors</h3>
+          <ol class="breadcrumb mt-10 white" style="background-color: transparent; border-bottom: 0px">
+            <li class=" text-theme-colored">Home</li>
+            <li><a class=" activetext-theme-colored" href="#">Doctors</a></li>
+
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Section: Doctors -->
+<section>
+  <div class="container">
+    <div class="section-title text-center">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h2 class="text-uppercase mt-0 line-height-1">Our Doctors</h2>
+          <div class="title-icon">
+            <img class="mb-10" src="../../../assets/images/title-icon.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-9">
+
+        <div *ngFor="let a of doctors">
+        <div class="upcoming-events bg-white-f3 mb-20">
+          <div class="row">
+            <div class="col-sm-4 pr-0 pr-sm-15">
+              <div class="thumb p-15">
+                <img class="img-fullwidth" src={{a.image}} alt="...">
+              </div>
+            </div>
+            <div class="col-sm-4 pl-0 pl-sm-15">
+              <div class="event-details p-15 mt-20">
+                <h4 class="media-heading text-uppercase font-weight-500">Dr.{{a.name}}</h4>
+                <p>{{a.presentation}}</p>
+                <button [routerLink]="['/appointment',{id: a.id,name: a.name}]" class="btn btn-success form-control">Make an appointment</button>
+
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="event-count p-15 mt-15">
+                <ul class="event-date list-inline font-16 text-uppercase mt-10 mb-20">
+                  <li class="p-15 mr-5 bg-lightest">{{a.speciality.name}}</li>
+
+                </ul>
+                <ul>
+                  <li class="mb-10 text-theme-colored"><i class="fa fa-clock-o mr-5"></i> 9.00 am - 5.30 pm</li>
+                  <li class="text-theme-colored"><i class="fa fa-map-marker mr-5"></i>{{a.city}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+

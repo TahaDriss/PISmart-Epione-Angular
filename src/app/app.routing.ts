@@ -8,12 +8,14 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
-import {AppComponent} from './app.component';
-import {FrontComponent} from './front/front.component';
+import { FrontComponent } from './front/front.component';
 import { AuthGuard } from './auth/auth.guard';
 import { UnauthorizedComponent } from './views/error/Unauthorized.component';
 import { SuccessfullComponent } from './views/successfull/successfull.component';
-import { DoctorComponent } from './doctor/doctor.component';
+import { DoctorComponent } from './front-office/doctor/doctor.component';
+import { AppointmentComponent } from './front-office/appointment/appointment.component';
+import { PatientAppointmentComponent } from './front-office/patient-appointment/patient-appointment.component';
+import { PatientProfileComponent } from './front-office/patient-profile/patient-profile.component';
 
 export const routes: Routes = [
   {
@@ -26,6 +28,42 @@ export const routes: Routes = [
       {
         path: '',
         loadChildren: './front-office/front-office.module#FrontOfficeModule'
+      },
+      {
+        path: 'profile',
+        component: PatientProfileComponent,
+      },
+      {
+        path: 'allDoctors',
+        component: DoctorComponent,
+      },
+      {
+        path: 'appointment/:id/:name',
+        component: AppointmentComponent,
+      },
+      {
+        path: 'patientAppointment',
+        component: PatientAppointmentComponent,
+      },
+      {
+        path: 'doctors/:name',
+        component: DoctorComponent,
+      },
+      {
+        path: 'doctors/:latitude/:longitude',
+        component: DoctorComponent,
+      },
+      {
+        path: 'doctors/:speciality_id',
+        component: DoctorComponent,
+      },
+      {
+        path: 'doctors/:name/:speciality_id',
+        component: DoctorComponent,
+      },
+      {
+        path: 'doctors/:name/:speciality_id/:latitude/:longitude',
+        component: DoctorComponent,
       }
     ]
   },
@@ -49,12 +87,12 @@ export const routes: Routes = [
     }
   },
   {
-    path : 'unauthorized',
-    component : UnauthorizedComponent
+    path: 'unauthorized',
+    component: UnauthorizedComponent
   },
   {
-    path : 'successfull',
-    component : SuccessfullComponent
+    path: 'successfull',
+    component: SuccessfullComponent
   },
   {
     path: 'login',
@@ -72,7 +110,7 @@ export const routes: Routes = [
   },
   {
     path: 'admin',
-    canActivate : [AuthGuard],
+    canActivate: [AuthGuard],
     component: DefaultLayoutComponent,
     data: {
       title: 'Home'
@@ -136,7 +174,7 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

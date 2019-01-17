@@ -1,0 +1,67 @@
+
+<section id="app" data-bg-img="../Content/images/pattern/p4.png">
+  <div class="container pt-50 pb-0">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="p-10">
+          <h2 class="mt-0 line-bottom line-height-1 text-black mb-30">Make An Appoinment<span class="text-theme-colored font-weight-600"> Now!</span></h2>
+
+
+            <h3>Time</h3>
+            <p-calendar [(ngModel)]="date7" [showTime]="true"></p-calendar>
+
+
+          <form style="display:flex;" #appointmentForm ="ngForm" (ngSubmit)="addAppointment(appointment)">
+
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group mb-30">
+                  <input type="text" class="form-control2"   name="nameD" placeholder={{name}} width="250px"
+                         [(ngModel)]="appointment.doctor.name" disabled>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group mb-30">
+                  <div class="styled-select">
+                    <select name="reason" class="form-control2 form-control" [(ngModel)]="appointment.reason.id" required>
+                      <option [ngValue]="undefined" disabled  selected> Select a Reason ... </option>
+                      <option *ngFor="let a of reasons" value={{a.id}}>{{a.name}}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group mb-30">
+                  <input name="date_start" class="form-control " required [(ngModel)]="appointment.date_start" type="datetime-local"   placeholder="Date" aria-required="true">
+
+                </div>
+
+              </div>
+              <div class="col-sm-12">
+                <div class="form-group mb-30">
+                  <textarea style="width:529px" id="form_message" name="message" required [(ngModel)]="appointment.message" class="form-control " placeholder="Enter Message" rows="5" aria-required="true"></textarea>
+
+              </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="form-group mb-0 mt-0">
+                  <input name="form_botcheck" class="form-control" type="hidden" value="">
+
+                  <input type="submit"  class="btn btn-dark btn-theme-colored form-control" value="Add Appointment" [disabled]="appointmentForm.invalid"/>
+
+                </div>
+              </div>
+            </div>
+
+
+          </form>
+
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img src="../../../assets/images/about/4.png" alt="">
+      </div>
+
+    </div>
+  </div>
+</section>

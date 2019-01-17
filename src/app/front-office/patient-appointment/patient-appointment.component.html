@@ -1,0 +1,71 @@
+
+
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="orders">
+
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th></th>
+            <th>Doctor</th>
+            <th>Address</th>
+            <th>Date</th>
+            <th>Reason</th>
+            <th>Message</th>
+            <th>State</th>
+          </tr>
+          </thead>
+          <tbody>
+
+          <tr *ngFor="let a of appointments">
+            <p-dialog header="Cancel Appointment" [(visible)]="display" [modal]="true" [responsive]="true" [width]="350" [minWidth]="200" [minY]="70"
+                      [maximizable]="true" [baseZIndex]="10000">
+              <span>Your appointment has been canceled. </span>
+              <p-footer>
+                <div style="text-align: center;"><button type="button"  icon="pi pi-check" (click)="ok()" class="btn-theme-colored">Ok</button></div>
+              </p-footer>
+            </p-dialog>
+
+
+            <td>
+            {{a.doctor.name}}
+
+            </td>
+            <td>
+              {{a.doctor.address}}
+
+            </td>
+            <td>
+            {{a.date_start}}
+            </td>
+
+            <td> {{a.reason.name}}</td>
+
+            <td>{{a.message}}</td>
+
+            <td>{{a.state}}</td>
+
+            <td>  <button  class="btn btn-danger btn-flat"   [disabled]="a.state ==='CANCELED' ? true : false" (click)="showDialog(a.id)">Cancel</button>
+            </td>
+
+
+            <input type="hidden" name="id" value={{a.id}} />
+
+            <!--<td><button  class="btn btn-success btn-flat"   [disabled]="a.state ==='CANCELED' ? true : false" >Update</button>-->
+
+            <!--</td>-->
+
+          </tr>
+
+
+
+
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
