@@ -14,4 +14,15 @@ export class DoctorService {
         });
         return this.http.get('http://localhost:18080/epione-jee-web/api/dashboard', { headers: headers});
     }
+
+    public chanegState(state: boolean, id: number) {
+        const token = localStorage.getItem('token');
+        const headers = new HttpHeaders({
+            Authorization : 'Bearer ' + token
+        });
+        return this.http.put(
+            'http://localhost:18080/epione-jee-web/api/Appointment/changestate/' + id + '?action=' + state, null,
+            { headers : headers }
+        );
+    }
 }

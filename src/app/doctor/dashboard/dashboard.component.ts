@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities';
-import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 import { DoctorService } from '../../services/doctor.service';
 import { Helpers } from './../../helpers';
 
@@ -39,6 +36,8 @@ export class DashboardComponent implements OnInit {
   chartLegend = true;
   hideDropDown = true;
   chart = 1;
+  time = 0;
+  timer;
 
   constructor(private doctorService: DoctorService) {}
 
@@ -46,12 +45,12 @@ export class DashboardComponent implements OnInit {
     Helpers.setLoading(true);
     this.doctorService.getDashboard().subscribe(
       data => {
-        this.appointments = data['appointments upcoming'];
+        this.appointments = data['appointments upcoming'].reverse();
         this.average_duration = data['average duration for consultations'];
         this.week_appointments = data['total appointments this week'];
         this.patients_count = data['total patients'];
         this.apps_per_day = data['average appointements per day'];
-        this.next_ongoing = data['ongoing'];
+        this.next_ongoing = this.appointments[0];
         const days_map = new Map(Object.entries(data['appointment per day']));
         this.dayChartLabels = Array.from(days_map.keys()).reverse();
         this.dayChartData = [
@@ -64,7 +63,6 @@ export class DashboardComponent implements OnInit {
         ];
         const year_map = new Map(Object.entries(data['appointment per year']));
         this.yearChartLabels = Array.from(year_map.keys());
-        console.log(this.yearChartLabels);
         this.yearChartData = [
           {data: Array.from(year_map.values()), label: 'Appointments per year'},
         ];
@@ -78,5 +76,36 @@ export class DashboardComponent implements OnInit {
   
   toggleDropDown() {
     document.getElementById('chartDropDown').classList.toggle('show');
+  }
+
+  toggleTimer(action: boolean) {
+    let me = this;
+    if (action) {
+      this.timer = setInterval(function() {
+        me.time++;
+      }, 1000);
+    } else {
+      this.time = 0;
+      clearInterval( this.timer );
+    }
+  }
+
+  changeState(state: boolean) {
+    this.toggleTimer(state);
+    this.doctorService.chanegState(state, this.next_ongoing.id).subscribe(
+      () => {
+        if (state) {
+          this.appointments.shift();
+          this.next_ongoing.state = 'ONGOING';
+        } else {
+          state = false;
+          this.doctorService.getDashboard().subscribe(
+            () => {
+              this.next_ongoing = this.appointments[0];
+            }
+          );
+        }
+      }
+    );
   }
 }
