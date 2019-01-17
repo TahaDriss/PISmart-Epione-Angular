@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  token : 'e033e94e665e441daab2cd1f5ddd5ec4'
+  token : 'e033e94e665e441daab2cd1f5ddd5ec4',
+  apiUrl: 'http://127.0.0.1:18080/epione-jee-web/api',
 };

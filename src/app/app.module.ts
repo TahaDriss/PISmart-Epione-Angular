@@ -55,6 +55,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReportService } from './services/report.service';
 import {AgmCoreModule} from '@agm/core';
 import {CalendarModule} from 'primeng/calendar';
+import {SharedModule} from './shared/shared.module';
 
 @NgModule({
   imports: [
@@ -66,6 +67,7 @@ import {CalendarModule} from 'primeng/calendar';
     }),
     CalendarModule,
     BrowserModule,
+    SharedModule,
     AppRoutingModule,
     AppAsideModule,
     AppBreadcrumbModule.forRoot(),
