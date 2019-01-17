@@ -117,9 +117,22 @@ export const routes: Routes = [
       {
         path: 'widgets',
         loadChildren: './views/widgets/widgets.module#WidgetsModule'
+      },
+      {
+        path: 'paths',
+        loadChildren: './paths/paths.module#PathsModule'
+      },
+      {
+        path: 'treats',
+        loadChildren: './treatments/treatments.module#TreatmentsModule'
+      },
+      {
+        path: 'reports',
+        loadChildren: './reports/reports.module#ReportsModule'
       }
     ]
-  }
+  },
+
 ];
 
 @NgModule({

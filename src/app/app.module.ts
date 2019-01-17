@@ -48,6 +48,12 @@ import { DoctorModule } from './doctor/doctor.module';
 import { DoctorRoutingModule } from './doctor/doctor-routing.module';
 import { LoaderComponent } from './loader.component';
 
+import { DataTablesModule } from 'angular-datatables';
+import { PathService } from './services/path.service';
+import { TreatmentService } from './services/treatment.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReportService } from './services/report.service';
+
 @NgModule({
   imports: [
     HttpClientModule,
@@ -69,6 +75,9 @@ import { LoaderComponent } from './loader.component';
     FormsModule,
     ReactiveFormsModule,
     FrontOfficeModule,
+    DataTablesModule,
+    FormsModule,
+    BrowserAnimationsModule,
   ],
   declarations: [
     AppComponent,
@@ -83,6 +92,9 @@ import { LoaderComponent } from './loader.component';
     LoaderComponent
   ],
   providers: [
+    PathService,
+    TreatmentService,
+    ReportService,
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy
@@ -91,4 +103,4 @@ import { LoaderComponent } from './loader.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

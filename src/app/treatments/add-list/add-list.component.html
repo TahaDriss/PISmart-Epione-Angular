@@ -1,0 +1,52 @@
+<div class="col-lg-12">
+  <div class="col-lg-6" >
+    <div class="card text-white" [style.backgroundColor]="getTreatmentsColor()">
+      <div class="card-header" [style.backgroundColor]="getTreatmentsColor()">
+        <i class="cui-magnifying-glass icons font-2xl  mt-4"></i> List of path's treatments ({{treatments.length}} treatments)
+      </div>
+      <div class="card-body">
+  <div class="example-container col-lg-6">
+
+    <div
+      cdkDropList
+      #todoList="cdkDropList"
+      [cdkDropListData]="treatments"
+      [cdkDropListConnectedTo]="[doneList]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of treatments"  cdkDrag [cdkDragData]="item" >{{item.description}}</div>
+    </div>
+  </div>
+      </div></div>
+
+    <button class="btn btn-primary" (click)="addTreatments()">Add treatments</button>
+
+  </div>
+
+  <div class="col-lg-6">
+    <div class="card border-primary ">
+      <div class="card-header">
+        <i class="cui-magnifying-glass icons font-2xl  mt-4"></i> Treatments list
+      </div>
+      <div class="card-body">
+        <div class="example-container col-lg-6">
+          <div class="input-group"><span class="input-group-prepend"><button class="btn btn-primary" type="button"><i class="fa fa-search"></i> Search</button></span>
+            <input class="form-control"  name="input1-group2" placeholder="Username" [(ngModel)]="query" type="text"></div>
+     <br>
+
+    <div
+      cdkDropList
+      #doneList="cdkDropList"
+      [cdkDropListData]="all"
+      [cdkDropListConnectedTo]="[todoList]"
+      class="example-list "
+      (cdkDropListDropped)="drop($event)">
+
+      <div class="example-box " *ngFor="let item of all | search:'id,description':query" cdkDrag [cdkDragData]="item" >{{item.description}}</div>
+    </div>
+  </div>
+</div>
+    </div></div></div>
+
+
+
