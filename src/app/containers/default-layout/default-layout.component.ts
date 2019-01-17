@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import { navItems } from './../../navs/_nav';
 import { doctorMenu } from './../../navs/_doctor_navs';
+import { adminMenu } from './../../navs/_admin_navs';
 import { Router } from '@angular/router';
 
 @Component({
@@ -26,9 +27,11 @@ export class DefaultLayoutComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     if (this.router.url.startsWith('/admin')) {
-      this.navItems = navItems;
-    } else {
+      this.navItems = adminMenu;
+    } else if (this.router.url.startsWith('/doctor')) {
       this.navItems = doctorMenu;
+    } else {
+      this.navItems = navItems;
     }
   }
 
