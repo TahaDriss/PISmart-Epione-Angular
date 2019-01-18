@@ -1,0 +1,41 @@
+
+<div ng-app="sample">
+  <form class="form-horizontal" name="registerForm">
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="price">Price</label>
+      <div class="col-md-4">
+        <input id="price" type="number" class="form-control" name="price" ng-model="price" [(ngModel)] ="priceX"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="rating">Rating</label>
+      <div class="col-md-4">
+        <input id="rating" type="number" class="form-control" name="rating" ng-model="rating" [(ngModel)] ="ratingX" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="rating">Remarks</label>
+      <div class="col-md-4">
+        <input id="remarks" type="text" class="form-control" name="remarks" ng-model="remarks" [(ngModel)] ="remarksX" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-3 control-label"><strong>Linked to this appointment</strong></label>
+      <div class="col-md-4">
+    <select type="text"  name="owner"  name="appointment"  > <br>
+      <option *ngFor="let a of apps" value="{{a}}">{{a.title}}</option>
+    </select><p>Note : Each consultation is assigned to a single appointment</p>
+      </div>
+    </div>
+
+
+
+    <div class="form-group">
+      <div class="col-md-offset-3 col-md-9">
+        <input type="submit" class="btn btn-default" value="Add" (click)="AddConsultation(consultation)"/>
+      </div>
+    </div>
+  </form>
+</div>
+

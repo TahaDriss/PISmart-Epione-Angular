@@ -1,0 +1,40 @@
+
+
+<div class="content mt-3">
+  <div class="animated fadeIn">
+    <div class="row">
+
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <strong class="card-title">List of best rated consultations</strong>
+          </div>
+          <div class="card-body">
+            <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+              <thead>
+              <tr>
+                <th>Consultation Infos</th>
+                <th>Price</th>
+                <th>Rating</th>
+                <th>Remarks</th>
+
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let i of consultations">
+                <td> </td>
+                <td>{{ i.price}} Dt</td>
+                <td><ngbd-rating-decimal [rating]="i.rating"></ngbd-rating-decimal></td>
+                <td>{{i.remarks}}</td>
+              </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

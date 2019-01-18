@@ -41,6 +41,18 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { FrontComponent } from './front/front.component';
 import {FrontOfficeModule} from './front-office/front-office.module';
+import {DocListComponent} from "./doctors/doc-list/doc-list.component";
+import {HttpClientModule} from "@angular/common/http";
+import {DoctorsModule} from "./doctors/doctors.module";
+import {DoctorService} from "./services/doctor.service";
+import {FormsModule} from "@angular/forms";
+import {PopupModule} from "ng2-opd-popup";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FullCalendarDirective } from './full-calendar.directive';
+import {DataTablesModule} from "angular-datatables";
+
+
+
 
 @NgModule({
   imports: [
@@ -55,7 +67,13 @@ import {FrontOfficeModule} from './front-office/front-office.module';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
-    FrontOfficeModule
+    FrontOfficeModule,
+      HttpClientModule,
+      FormsModule,
+      PopupModule.forRoot(),
+      NgbModule.forRoot(),
+      DataTablesModule
+
   ],
   declarations: [
     AppComponent,
@@ -64,9 +82,13 @@ import {FrontOfficeModule} from './front-office/front-office.module';
     P500Component,
     LoginComponent,
     RegisterComponent,
-    FrontComponent
+    FrontComponent,
+    FullCalendarDirective,
+
+
   ],
-  providers: [{
+  providers: [ DoctorService,
+      {
     provide: LocationStrategy,
     useClass: HashLocationStrategy
   }],
