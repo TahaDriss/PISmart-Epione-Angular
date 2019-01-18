@@ -7,7 +7,7 @@
       <div class="widget no-border">
         <nav>
           <ul class="nav nav-list">
-            <li><a href="#">Home</a></li>
+            <li><a routerLink="">Home</a></li>
             <li><a href="#">Services</a></li>
             <li><a class="tree-toggler nav-header">Pages <i class="fa fa-angle-down"></i></a>
               <ul class="nav nav-list tree">
@@ -25,9 +25,11 @@
     <div class="side-panel-widget mt-30">
       <div class="widget no-border">
         <ul>
-          <li class="font-14 mb-5"> <i class="fa fa-phone text-theme-colored"></i> <a href="#" class="text-gray">123-456-789</a> </li>
+          <li class="font-14 mb-5"> <i class="fa fa-phone text-theme-colored"></i> <a href="#" class="text-gray">123-456-789</a>
+          </li>
           <li class="font-14 mb-5"> <i class="fa fa-clock-o text-theme-colored"></i> Mon-Fri 8:00 to 2:00 </li>
-          <li class="font-14 mb-5"> <i class="fa fa-envelope-o text-theme-colored"></i> <a href="#" class="text-gray">contact@yourdomain.com</a> </li>
+          <li class="font-14 mb-5"> <i class="fa fa-envelope-o text-theme-colored"></i> <a href="#" class="text-gray">contact@yourdomain.com</a>
+          </li>
         </ul>
       </div>
       <div class="widget">
@@ -71,99 +73,18 @@
               <img src="../../../assets/images/logo-wide.png" alt="">
             </a>
             <ul class="menuzord-menu">
-              <li ><a href="" class="dropdown">Home</a>
+              <li><a routerLink="" class="dropdown">Home</a>
+              </li>
+              <li>
+                <a [routerLink]="['/patientAppointment']">My Appointments</a>
+              </li>
+              <li><a [routerLink]="['/allDoctors']">Our doctors</a></li>
+              <li><a [routerLink]="['/profile']">Profile</a>
                 <ul class="dropdown">
-                  <li><a href="#">Multi Page Layouts</a>
-
-                  </li>
-                  <li><a href="#">Single Page Layouts</a>
-
-                  </li>
-                  <li><a href="#">Boxed Layouts</a>
-
-                  </li>
-                  <li><a href="#">RTL Layouts</a>
-
-                  </li>
-                  <li><a href="#">Magazine Home Layouts <span class="label label-info">New</span></a>
-
-                  </li>
-                  <li><a href="#">Portfolio Home Layouts <span class="label label-info">New</span></a>
-
-                  </li>
-                  <li><a href="#">Hot Layouts <span class="label label-info">New</span></a>
-
-                  </li>
-                  <li><a href="index-shop-home.html">Shop Home <span class="label label-info">New</span></a></li>
-                  <li><a href="#">Home Variations <span class="label label-info">New</span></a>
-
-                  </li>
+                  <li><a href="page-account.html">Account</a></li>
+                  <li><a href="page-account-edit.html">Edit Account</a></li>
                 </ul>
               </li>
-              <li><a [routerLink]="['/patientAppointment']">My Appointments</a>
-
-
-              </li>
-
-              <li><a  [routerLink]="['/allDoctors']">Our doctors</a></li>
-                  <li><a [routerLink]="['/profile']">Profile</a>
-                    <ul class="dropdown">
-                      <li><a href="page-account.html">Account</a></li>
-                      <li><a href="page-account-edit.html">Edit Account</a></li>
-                    </ul>
-                  </li>
-
-
-              <li><a href="#">Blog</a>
-                <ul class="dropdown">
-                  <li><a href="#">Blog Classic</a>
-                    <ul class="dropdown">
-                      <li><a href="blog-classic-no-sidebar.html">Blog Classic No Sidebar</a></li>
-                      <li><a href="blog-classic-left-sidebar.html">Blog Classic Left Sidebar</a></li>
-                      <li><a href="blog-classic-right-sidebar.html">Blog Classic Right Sidebar</a></li>
-                      <li><a href="blog-classic-both-sidebar.html">Blog Classic Both Sidebar</a></li>
-                      <li><a href="blog-classic-left-thumbs.html">Blog Classic Left Thumbs</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Blog Grid</a>
-                    <ul class="dropdown">
-                      <li><a href="blog-grid-2-column.html">Blog Grid 2 Column</a></li>
-                      <li><a href="blog-grid-3-column.html">Blog Grid 3 Column</a></li>
-                      <li><a href="blog-grid-4-column.html">Blog Grid 4 Column</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Blog Masonry</a>
-                    <ul class="dropdown">
-                      <li><a href="blog-masonry-2-column.html">Blog Masonry 2 Column</a></li>
-                      <li><a href="blog-masonry-3-column.html">Blog Masonry 3 Column</a></li>
-                      <li><a href="blog-masonry-4-column.html">Blog Masonry 4 Column</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Blog Single</a>
-                    <ul class="dropdown">
-                      <li><a href="blog-single-no-sidebar.html">Blog Single No Sidebar</a></li>
-                      <li><a href="blog-single-left-sidebar.html">Blog Single Left Sidebar</a></li>
-                      <li><a href="blog-single-right-sidebar.html">Blog Single Right Sidebar</a></li>
-                      <li><a href="blog-single-both-sidebar.html">Blog Single Both Sidebar</a></li>
-                      <li><a href="blog-single-disqus-comments.html">Blog Single Discuss Comments</a></li>
-                      <li><a href="blog-single-facebook-comments.html">Blog Single Facebook Comments</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Blog Infinity Scroll</a>
-                    <ul class="dropdown">
-                      <li><a href="blog-extra-infinity-scroll.html">Blog Infinity Scroll Default</a></li>
-                      <li><a href="blog-extra-infinity-scroll-lazyload.html">Blog Infinity Scroll Lazyload</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Blog Timeline</a>
-                    <ul class="dropdown">
-                      <li><a href="blog-timeline.html">Blog Timeline Default</a></li>
-                      <li><a href="blog-timeline-masonry.html">Blog Timeline Masonry</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-
             </ul>
           </nav>
         </div>
@@ -171,7 +92,7 @@
     </div>
   </header>
   <div class="app-content">
-  <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
   </div>
   <!-- Footer -->
   <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>

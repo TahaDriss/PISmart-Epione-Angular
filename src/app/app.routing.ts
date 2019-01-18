@@ -21,9 +21,6 @@ export const routes: Routes = [
   {
     path: '',
     component: FrontComponent,
-    data: {
-      title: 'test'
-    },
     children: [
       {
         path: '',
@@ -66,11 +63,6 @@ export const routes: Routes = [
         component: DoctorComponent,
       }
     ]
-  },
-  {
-    path: 'dash',
-    redirectTo: 'dashboard',
-    pathMatch: 'full',
   },
   {
     path: '404',
@@ -133,40 +125,9 @@ export const routes: Routes = [
         loadChildren: './views/buttons/buttons.module#ButtonsModule'
       },
       {
-        path: 'charts',
-        loadChildren: './views/chartjs/chartjs.module#ChartJSModule'
-      },
-      {
-        path: 'dashboard',
-        loadChildren: './views/dashboard/dashboard.module#DashboardModule'
-      },
-      {
-        path: 'icons',
-        loadChildren: './views/icons/icons.module#IconsModule'
-      },
-      {
-        path: 'notifications',
-        loadChildren: './views/notifications/notifications.module#NotificationsModule'
-      },
-      {
-        path: 'theme',
-        loadChildren: './views/theme/theme.module#ThemeModule'
-      },
-      {
-        path: 'widgets',
-        loadChildren: './views/widgets/widgets.module#WidgetsModule'
-      },
-      {
-        path: 'paths',
-        loadChildren: './paths/paths.module#PathsModule'
-      },
-      {
-        path: 'treats',
-        loadChildren: './treatments/treatments.module#TreatmentsModule'
-      },
-      {
-        path: 'reports',
-        loadChildren: './reports/reports.module#ReportsModule'
+        path : '**',
+        redirectTo: '404',
+        pathMatch: 'full'
       }
     ]
   },

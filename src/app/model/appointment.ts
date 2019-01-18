@@ -1,5 +1,5 @@
 
-import {Doctor} from './doctor';
+import {Doctor} from '../Models/Doctor';
 
   import DateTimeFormat = Intl.DateTimeFormat;
 

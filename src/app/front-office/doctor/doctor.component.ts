@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DoctorService} from '../../services/doctor.service';
-import {Doctor} from '../../model/doctor';
+import {Doctor} from '../../Models/Doctor';
 import {ActivatedRoute, Params} from '@angular/router';
 
 @Component({

@@ -56,6 +56,13 @@ import { ReportService } from './services/report.service';
 import {AgmCoreModule} from '@agm/core';
 import {CalendarModule} from 'primeng/calendar';
 import {SharedModule} from './shared/shared.module';
+import {DoctorService} from './services/doctor.service';
+import {PopupModule} from 'ng2-opd-popup';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FullCalendarDirective } from './full-calendar.directive';
+
+
+
 
 @NgModule({
   imports: [
@@ -87,6 +94,10 @@ import {SharedModule} from './shared/shared.module';
     FrontOfficeModule,
     DataTablesModule,
     BrowserAnimationsModule,
+      PopupModule.forRoot(),
+      NgbModule.forRoot(),
+      DataTablesModule
+
   ],
   declarations: [
     AppComponent,
@@ -96,6 +107,7 @@ import {SharedModule} from './shared/shared.module';
     LoginComponent,
     RegisterComponent,
     FrontComponent,
+    FullCalendarDirective,
     UnauthorizedComponent,
     SuccessfullComponent,
     LoaderComponent
@@ -108,7 +120,8 @@ import {SharedModule} from './shared/shared.module';
       provide: LocationStrategy,
       useClass: HashLocationStrategy
     },
-    AuthService
+    AuthService,
+    DoctorService
   ],
   bootstrap: [AppComponent]
 })

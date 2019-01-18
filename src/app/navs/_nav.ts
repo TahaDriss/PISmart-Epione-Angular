@@ -1,13 +1,11 @@
 export const navItems = [
   {
-    name: 'Dashboard',
+    name: 'Doctor Space',
     url: '/admin/dashboard',
     icon: 'icon-speedometer',
-    badge: {
-      variant: 'info',
-      text: 'NEW'
-    }
   },
+
+
   {
     name: 'Paths',
     url: '/admin/paths',
@@ -45,103 +43,22 @@ export const navItems = [
   },
   {
     title: true,
-    name: 'Theme'
+    name: 'My space'
   },
   {
-    name: 'Colors',
-    url: '/admin/theme/colors',
-    icon: 'icon-drop'
-  },
-  {
-    name: 'Typography',
-    url: '/admin/theme/typography',
-    icon: 'icon-pencil'
-  },
-  {
-    title: true,
-    name: 'Components'
-  },
-  {
-    name: 'Base',
-    url: '/admin/base',
-    icon: 'icon-puzzle',
-    children: [
-      {
-        name: 'Cards',
-        url: '/admin/base/cards',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Carousels',
-        url: '/admin/base/carousels',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Collapses',
-        url: '/admin/base/collapses',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Forms',
-        url: '/admin/base/forms',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Pagination',
-        url: '/admin/base/paginations',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Popovers',
-        url: '/admin/base/popovers',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Progress',
-        url: '/admin/base/progress',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Switches',
-        url: '/admin/base/switches',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Tables',
-        url: '/admin/base/tables',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Tabs',
-        url: '/admin/base/tabs',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Tooltips',
-        url: '/admin/base/tooltips',
-        icon: 'icon-puzzle'
-      }
-    ]
-  },
-  {
-    name: 'Buttons',
+    name: 'Appointments',
     url: '/admin/buttons',
     icon: 'icon-cursor',
     children: [
       {
-        name: 'Buttons',
-        url: '/admin/buttons/buttons',
+        name: 'View all (with extract possibility)',
+        url: '/admin/doctors/app',
         icon: 'icon-cursor'
       },
       {
-        name: 'Dropdowns',
-        url: '/admin/buttons/dropdowns',
-        icon: 'icon-cursor'
-      },
-      {
-        name: 'Brand Buttons',
-        url: '/admin/buttons/brand-buttons',
-        icon: 'icon-cursor'
+        name: 'Delete an appointment',
+        url: '/admin/doctors/appDel',
+        icon: 'icon-fire'
       }
     ]
   },
@@ -237,52 +154,38 @@ export const navItems = [
     name: 'Pages',
     url: '/admin/pages',
     icon: 'icon-star',
+  },
+  {
+    name: 'Consultations',
+    url: '/admin/base',
+    icon: 'icon-puzzle',
     children: [
       {
-        name: 'Login',
-        url: '/admin/login',
-        icon: 'icon-star'
+        name: 'View all',
+        url: '/admin/doctors/consultationsList',
+        icon: 'icon-puzzle'
       },
       {
-        name: 'Register',
-        url: '/admin/register',
-        icon: 'icon-star'
+        name: 'Add consultation',
+        url: '/admin/doctors/consultationsAdd',
+        icon: 'icon-puzzle'
       },
       {
-        name: 'Error 404',
-        url: '/admin/404',
-        icon: 'icon-star'
-      },
-      {
-        name: 'Error 500',
-        url: '/admin/500',
-        icon: 'icon-star'
+        name: 'Best consultations',
+        url: '/admin/doctors/bestCons',
+        icon: 'icon-puzzle'
       }
+
     ]
   },
   {
-    name: 'Disabled',
-    url: '/admin/dashboard',
-    icon: 'icon-ban',
-    badge: {
-      variant: 'secondary',
-      text: 'NEW'
-    },
-    attributes: { disabled: true },
+    name: 'My calendar',
+    url: '/admin/doctors/calendar',
+    icon: 'icon-hourglass'
   },
   {
-    name: 'Download CoreUI',
-    url: 'http://coreui.io/angular/',
-    icon: 'icon-cloud-download',
-    class: 'mt-auto',
-    variant: 'success',
-    attributes: { target: '_blank', rel: 'noopener' }
-  },
-  {
-    name: 'Try CoreUI PRO',
-    url: 'http://coreui.io/pro/angular/',
-    icon: 'icon-layers',
-    variant: 'danger',
-    attributes: { target: '_blank', rel: 'noopener' }
+    name: 'Doctors and colleagues',
+    url: '/admin/doctors/doctorList',
+    icon: 'icon-people'
   }
 ];

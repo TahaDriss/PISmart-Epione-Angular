@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Appointment, Reason} from '../../model/appointment';
 import {AppointmentService} from '../../services/appointment.service';
-import {Doctor} from '../../model/doctor';
+import {Doctor} from '../../Models/Doctor';
 import DateTimeFormat = Intl.DateTimeFormat;
 import {CalendarModule} from 'primeng/calendar';
 @Component({

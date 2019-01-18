@@ -56,7 +56,7 @@ export class RatingComponent implements OnInit, OnDestroy  {
   }
   getapp() {
     console.log('efe', this.name);
-    this.rateService.getapp(this.name).subscribe(data => {
+    this.rateService.getapp(this.name).subscribe((data : any) => {
       return this.appWithRates = data;
     });
   }

@@ -1,0 +1,21 @@
+<table datatable [dtOptions]="dtOptions" class="row-border hover">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Start date</th>
+    <th>End date</th>
+    <th>Subject Name</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let i of apps">
+    <td>{{i.id}}</td>
+    <td>{{i.start}}</td>
+    <td>{{i.end}}</td>
+    <td>{{i.title}}</td>
+  </tr>
+  </tbody>
+</table>
+
+
+

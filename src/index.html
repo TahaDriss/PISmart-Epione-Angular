@@ -17,13 +17,22 @@
   <meta name="description" content="Epione">
   <meta name="author" content="Łukasz Holeczek">
   <meta name="keyword" content="Bootstrap,Admin,Template,Free,Angular,Dashboard,Typescript">
-	<title>Epione</title>
-
+  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+          integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+          crossorigin=""></script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.6.1/fullcalendar.min.css">
+
+
+
+
   <!-- MEDIKAL-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Favicon and Touch Icons -->
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' />
 
   <link href="assets/images/favicon.png" rel="shortcut icon" type="image/png">
   <link href="assets/images/apple-touch-icon.png" rel="icon">
@@ -47,7 +56,7 @@
   <link href="assets/css/responsive.css" rel="stylesheet" type="text/css">
   <!-- CSS | Style css. This is the file where you can place your own custom css code. Just uncomment it and use it. -->
   <!-- <link href="css/style.css" rel="stylesheet" type="text/css"> -->
-
+  <title>Epione</title>
   <!-- Revolution Slider 5.x CSS settings -->
   <link  href="assets/js/revolution-slider/css/settings.css" rel="stylesheet" type="text/css"/>
   <link  href="assets/js/revolution-slider/css/layers.css" rel="stylesheet" type="text/css"/>
@@ -55,7 +64,6 @@
 
   <!-- CSS | Theme Color -->
   <link href="assets/css/colors/theme-skin-blue.css" rel="stylesheet" type="text/css">
-
   <!-- END MEDIKAL -->
   <script src="node_modules/chart.js/src/chart.js"></script>
   <script>
@@ -67,6 +75,8 @@
     // Angular ID
     gtag('config', 'UA-118965717-4');
   </script>
+
+
 </head>
 <body class="app">
   <!-- App Loading... -->

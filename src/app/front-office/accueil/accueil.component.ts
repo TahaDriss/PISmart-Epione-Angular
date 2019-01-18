@@ -1,11 +1,11 @@
+/// <reference types="@types/googlemaps" />
 import { Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
 import { DoctorService } from '../../services/doctor.service';
-import { Doctor } from '../../model/doctor';
+import { Doctor } from '../../models/Doctor';
 import { Speciality } from '../../model/speciality';
 import { AccueilService } from '../../services/accueil.service';
 import { FormControl } from '@angular/forms';
 import { MapsAPILoader } from '@agm/core';
-import { } from 'googlemaps';
 declare var google: any;
 
 @Component({

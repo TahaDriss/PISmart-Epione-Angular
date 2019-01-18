@@ -1,12 +1,12 @@
 export const adminMenu = [
     {
-        name: 'Dashboard',
-        url: '/admin/dashboard',
-        icon: 'icon-speedometer'
+        name: 'Doctolib',
+        url: '/admin/doctolib',
+        icon: 'icon-star'
     },
     {
-        name: 'Users',
-        url: '/admin/users',
-        icon: 'icon-people'
+        name: 'Epione Health Care',
+        url: '/admin/chatbot',
+        icon: 'icon-star'
     }
-]
+];

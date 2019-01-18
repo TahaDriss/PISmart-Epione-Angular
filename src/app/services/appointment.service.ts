@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Appointment, Patient, Reason} from '../model/appointment';
-import {Doctor} from '../model/doctor';
+import {Doctor} from '../Models/Doctor';
 import {catchError} from 'rxjs/operators';
 import {Speciality} from '../model/speciality';
 
